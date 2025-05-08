@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bank Chatbot</title>
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 </head>
@@ -11,9 +13,9 @@
   <df-messenger
     intent="WELCOME"
     chat-title="BankBot"
-    agent-id="0ace3560-9351-4af9-9363-0f235591708d"
+    agent-id="0ace3560-9351-4af9-9363-0f235591708d" <!-- Replace with your actual agent ID -->
     language-code="en"
   ></df-messenger>
-
+  
 </body>
 </html>
