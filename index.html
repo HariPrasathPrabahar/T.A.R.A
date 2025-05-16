@@ -2,20 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank Chatbot</title>
+  <title>Welcome to TARA - Smart Banking Assistant</title>
+  <link rel="icon" href="https://drive.google.com/uc?export=view&id=1oeD7rChUWtxk2m3vQa7j_ZTKumu6w76n">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6fa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .header {
+      background-color: #003366;
+      padding: 20px;
+      color: white;
+    }
+    .header img {
+      height: 60px;
+      vertical-align: middle;
+    }
+    .container {
+      margin: 40px auto;
+      max-width: 700px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .tara-image {
+      width: 150px;
+      margin-top: -100px;
+      border-radius: 50%;
+      background: white;
+      padding: 5px;
+    }
+    h1 {
+      color: #003366;
+    }
+    .examples {
+      text-align: left;
+      margin-top: 20px;
+    }
+    .examples p {
+      background: #e6f0ff;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 5px 0;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 </head>
 <body>
-  <h2>Welcome to Our Bank Chatbot</h2>
-  <p>Click the chat icon at the bottom right to start.</p>
+  <div class="header">
+    <img src="https://drive.google.com/uc?export=view&id=1oeD7rChUWtxk2m3vQa7j_ZTKumu6w76n" alt="Bank Logo">
+  </div>
+
+  <div class="container">
+    <img class="tara-image" src="https://drive.google.com/uc?export=view&id=15alFeRwT6rDaUpeFWqjQjrEKqFZRKFPQ" alt="TARA - Virtual Assistant">
+
+    <h1>Meet <strong>TARA</strong></h1>
+    <p>Your Smart Banking Assistant, here to help 24/7</p>
+
+    <div class="examples">
+      <h3>Try asking:</h3>
+      <p>💬 I want to open a savings account</p>
+      <p>💬 How do I send money urgently?</p>
+      <p>💬 Tell me about home loans</p>
+      <p>💬 What is the minimum balance required?</p>
+    </div>
+
+    <p style="margin-top: 30px;"><strong>Click the icon on the bottom right to chat with TARA!</strong></p>
+  </div>
 
   <df-messenger
     intent="WELCOME"
-    chat-title="BankBot"
-    agent-id="0ace3560-9351-4af9-9363-0f235591708d" <!-- Replace with your actual agent ID -->
+    chat-title="Ask TARA"
+    agent-id="0ace3560-9351-4af9-9363-0f235591708d"
     language-code="en"
-  ></df-messenger>
-  
+    chat-icon="https://drive.google.com/uc?export=view&id=15alFeRwT6rDaUpeFWqjQjrEKqFZRKFPQ">
+  </df-messenger>
+
+  <div class="footer">
+    © 2025 Union Bank of India | Developed by P HariPrasath
+  </div>
 </body>
 </html>
