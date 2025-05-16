@@ -1,70 +1,136 @@
-<style>
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f2f5fc;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    color: #002147;
-  }
-  .header {
-    background-color: #002147;
-    padding: 20px;
-  }
-  .header img {
-    height: 80px;
-  }
-  .container {
-    margin: 40px auto;
-    max-width: 720px;
-    padding: 30px 25px;
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  }
-  .tara-image {
-    width: 180px;
-    margin-top: -100px;
-    background: white;
-    padding: 6px;
-    border: 2px solid #cc0000;
-  }
-  h1 {
-    font-size: 2.2rem;
-    margin: 20px 0 10px;
-    color: #cc0000;
-  }
-  p.subtitle {
-    font-size: 1.1rem;
-    color: #003366;
-  }
-  .examples {
-    text-align: left;
-    margin-top: 30px;
-  }
-  .examples h3 {
-    color: #002147;
-    font-size: 1.2rem;
-  }
-  .examples p {
-    background: #e6efff;
-    color: #002147;
-    padding: 10px 15px;
-    border-left: 4px solid #cc0000;
-    border-radius: 6px;
-    margin: 8px 0;
-    font-size: 1rem;
-  }
-  .cta {
-    margin-top: 35px;
-    font-weight: bold;
-    color: #002147;
-  }
-  .footer {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #002147;
-    color: #ffffff;
-    font-size: 0.9rem;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to TARA - Smart Banking Assistant</title>
+  <link rel="icon" href="UBI-logo.png">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2f5fc;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: #002147;
+    }
+
+    .header {
+      background-color: #002147;
+      padding: 20px;
+    }
+
+    .header img {
+      height: 80px;
+    }
+
+    .container {
+      margin: 40px auto;
+      max-width: 720px;
+      padding: 30px 25px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .tara-image {
+      width: 180px;
+      margin-top: -100px;
+      background: white;
+      padding: 6px;
+      border: 2px solid #cc0000;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin: 20px 0 10px;
+      color: #cc0000;
+    }
+
+    p.subtitle {
+      font-size: 1.1rem;
+      color: #003366;
+    }
+
+    .examples {
+      text-align: left;
+      margin-top: 30px;
+    }
+
+    .examples h3 {
+      color: #002147;
+      font-size: 1.2rem;
+    }
+
+    .examples p {
+      background: #e6efff;
+      color: #002147;
+      padding: 10px 15px;
+      border-left: 4px solid #cc0000;
+      border-radius: 6px;
+      margin: 8px 0;
+      font-size: 1rem;
+    }
+
+    .cta {
+      margin-top: 35px;
+      font-weight: bold;
+      color: #002147;
+    }
+
+    .footer {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #002147;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer a:hover {
+      text-decoration: none;
+    }
+  </style>
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+</head>
+<body>
+
+  <div class="header">
+    <img src="UBI-logo.png" alt="Union Bank Logo">
+  </div>
+
+  <div class="container">
+    <img class="tara-image" src="TARA.png" alt="TARA - Virtual Assistant">
+
+    <h1>Meet <strong>TARA</strong></h1>
+    <p class="subtitle">Your Smart Banking Assistant, here to help 24/7</p>
+
+    <div class="examples">
+      <h3>Try asking:</h3>
+      <p>💬 I want to open a savings account</p>
+      <p>💬 How do I send money urgently?</p>
+      <p>💬 Tell me about home loans</p>
+      <p>💬 What is the minimum balance required?</p>
+    </div>
+
+    <p class="cta">Click the icon on the bottom right to chat with TARA!</p>
+  </div>
+
+  <df-messenger
+    intent="WELCOME"
+    chat-title="Ask TARA"
+    agent-id="0ace3560-9351-4af9-9363-0f235591708d"
+    language-code="en"
+    chat-icon="TARA.png">
+  </df-messenger>
+
+  <div class="footer">
+    © 2025 Union Bank of India | Developed by 
+    <a href="https://www.linkedin.com/in/hari-prasath-prabahar-3b6a72246" target="_blank">P HariPrasath</a>
+  </div>
+
+</body>
+</html>
