@@ -51,23 +51,15 @@
       color: #003366;
     }
 
-    .chat-launch {
-      margin: 30px 0 10px;
-    }
-
-    .chat-launch img {
-      width: 100px;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .chat-launch img:hover {
-      transform: scale(1.1);
+    .cta {
+      margin-top: 35px;
+      font-weight: bold;
+      color: #002147;
     }
 
     .examples {
       text-align: left;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     .examples h3 {
@@ -83,12 +75,6 @@
       border-radius: 6px;
       margin: 8px 0;
       font-size: 1rem;
-    }
-
-    .cta {
-      margin-top: 35px;
-      font-weight: bold;
-      color: #002147;
     }
 
     .footer {
@@ -107,14 +93,26 @@
     .footer a:hover {
       text-decoration: none;
     }
-
-    /* Hide the default floating icon */
-    df-messenger {
-      --df-messenger-button-display: none;
-    }
   </style>
-
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <script>
+    window.addEventListener('dfMessengerLoaded', function () {
+      const dfMessenger = document.querySelector('df-messenger');
+      const shadowRoot = dfMessenger.shadowRoot;
+      const checkIcon = setInterval(() => {
+        if (shadowRoot) {
+          const chatIcon = shadowRoot.querySelector('df-messenger-chat-icon');
+          if (chatIcon) {
+            chatIcon.style.transform = 'scale(1.8)';
+            chatIcon.style.transformOrigin = 'bottom right';
+            chatIcon.style.bottom = '30px';
+            chatIcon.style.right = '30px';
+            clearInterval(checkIcon);
+          }
+        }
+      }, 100);
+    });
+  </script>
 </head>
 <body>
 
@@ -128,10 +126,8 @@
     <h1>Meet <strong>TARA</strong></h1>
     <p class="subtitle">Your Smart Banking Assistant, here to help 24/7</p>
 
-    <!-- Custom Chat Launch Icon -->
-    <div class="chat-launch">
-      <img src="TARA.png" alt="Chat with TARA" title="Click to chat with TARA" onclick="openChat()" />
-    </div>
+    <!-- Moved CTA Text Here -->
+    <p class="cta">Click the icon on the bottom right to chat with TARA!</p>
 
     <div class="examples">
       <h3>Try asking:</h3>
@@ -140,8 +136,6 @@
       <p>💬 Tell me about home loans</p>
       <p>💬 What is the minimum balance required?</p>
     </div>
-
-    <p class="cta">Click the image above to start chatting with TARA!</p>
   </div>
 
   <df-messenger
@@ -156,22 +150,6 @@
     © 2025 Union Bank of India | Developed by 
     <a href="https://www.linkedin.com/in/hari-prasath-prabahar-3b6a72246" target="_blank">P HariPrasath</a>
   </div>
-
-  <script>
-    function openChat() {
-      const dfMessenger = document.querySelector('df-messenger');
-      const openChatBox = setInterval(() => {
-        const shadowRoot = dfMessenger.shadowRoot;
-        if (shadowRoot) {
-          const chatIcon = shadowRoot.querySelector('df-messenger-chat-icon');
-          if (chatIcon) {
-            chatIcon.click();
-            clearInterval(openChatBox);
-          }
-        }
-      }, 100);
-    }
-  </script>
 
 </body>
 </html>
