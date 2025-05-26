@@ -51,6 +51,20 @@
       color: #003366;
     }
 
+    .chat-launch {
+      margin: 30px 0 10px;
+    }
+
+    .chat-launch img {
+      width: 100px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .chat-launch img:hover {
+      transform: scale(1.1);
+    }
+
     .examples {
       text-align: left;
       margin-top: 30px;
@@ -93,7 +107,13 @@
     .footer a:hover {
       text-decoration: none;
     }
+
+    /* Hide the default floating icon */
+    df-messenger {
+      --df-messenger-button-display: none;
+    }
   </style>
+
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 </head>
 <body>
@@ -108,6 +128,11 @@
     <h1>Meet <strong>TARA</strong></h1>
     <p class="subtitle">Your Smart Banking Assistant, here to help 24/7</p>
 
+    <!-- Custom Chat Launch Icon -->
+    <div class="chat-launch">
+      <img src="TARA.png" alt="Chat with TARA" title="Click to chat with TARA" onclick="openChat()" />
+    </div>
+
     <div class="examples">
       <h3>Try asking:</h3>
       <p>💬 I want to open a savings account</p>
@@ -116,7 +141,7 @@
       <p>💬 What is the minimum balance required?</p>
     </div>
 
-    <p class="cta">Click the icon on the bottom right to chat with TARA!</p>
+    <p class="cta">Click the image above to start chatting with TARA!</p>
   </div>
 
   <df-messenger
@@ -132,27 +157,20 @@
     <a href="https://www.linkedin.com/in/hari-prasath-prabahar-3b6a72246" target="_blank">P HariPrasath</a>
   </div>
 
-  <!-- Enlarge Chat Icon Script -->
   <script>
-    window.addEventListener('dfMessengerLoaded', function () {
+    function openChat() {
       const dfMessenger = document.querySelector('df-messenger');
-
-      const interval = setInterval(() => {
+      const openChatBox = setInterval(() => {
         const shadowRoot = dfMessenger.shadowRoot;
-        if (!shadowRoot) return;
-
-        const chatIcon = shadowRoot.querySelector('df-messenger-chat-icon');
-        if (chatIcon && chatIcon.shadowRoot) {
-          const fabButton = chatIcon.shadowRoot.querySelector('button');
-          if (fabButton) {
-            fabButton.style.transform = 'scale(2.4)';
-            fabButton.style.bottom = '30px';
-            fabButton.style.right = '30px';
-            clearInterval(interval);
+        if (shadowRoot) {
+          const chatIcon = shadowRoot.querySelector('df-messenger-chat-icon');
+          if (chatIcon) {
+            chatIcon.click();
+            clearInterval(openChatBox);
           }
         }
       }, 100);
-    });
+    }
   </script>
 
 </body>
