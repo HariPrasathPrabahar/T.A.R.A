@@ -97,6 +97,22 @@
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
 </head>
 <body>
+<script>
+  window.addEventListener('dfMessengerLoaded', function () {
+    const dfMessenger = document.querySelector('df-messenger');
+    const shadowRoot = dfMessenger.shadowRoot || dfMessenger.attachShadow({ mode: 'open' });
+
+    const checkIcon = setInterval(() => {
+      const chatIcon = shadowRoot.querySelector('df-messenger-chat-icon');
+      if (chatIcon) {
+        chatIcon.style.transform = 'scale(1.8)';
+        chatIcon.style.bottom = '20px';  // Adjust position if needed
+        chatIcon.style.right = '20px';   // Adjust position if needed
+        clearInterval(checkIcon);
+      }
+    }, 100);
+  });
+</script>
 
   <div class="header">
     <img src="UBI-logo.png" alt="Union Bank Logo">
