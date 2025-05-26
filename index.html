@@ -95,6 +95,28 @@
     }
   </style>
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <script>
+  // Wait for the Dialogflow Messenger to fully load
+  window.addEventListener('dfMessengerLoaded', function () {
+    const dfMessenger = document.querySelector('df-messenger');
+
+    // Wait until the shadow DOM is ready
+    const interval = setInterval(() => {
+      const shadowRoot = dfMessenger.shadowRoot;
+      if (!shadowRoot) return;
+
+      const chatIcon = shadowRoot.querySelector('df-messenger-chat-icon');
+      if (chatIcon) {
+        chatIcon.style.transform = 'scale(2.2)';
+        chatIcon.style.transformOrigin = 'bottom right';
+        chatIcon.style.bottom = '30px';
+        chatIcon.style.right = '30px';
+        clearInterval(interval); // Stop checking once it's found
+      }
+    }, 100); // Check every 100ms
+  });
+</script>
+
 </head>
 <body>
 <script>
